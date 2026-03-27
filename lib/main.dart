@@ -19,9 +19,10 @@ class InventoryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const surfaceTint = Color(0xFF4C7C7D);
-    const background = Color(0xFFF4F7F8);
-    const foreground = Color(0xFF233238);
+    const primary = Color(0xFF1F3A5F);
+    const secondary = Color(0xFF2E6F95);
+    const background = Color(0xFFF4F7FB);
+    const foreground = Color(0xFF1F2937);
 
     return MaterialApp(
       title: 'INVY',
@@ -29,23 +30,29 @@ class InventoryApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(
-              seedColor: surfaceTint,
+              seedColor: primary,
               brightness: Brightness.light,
             ).copyWith(
+              primary: primary,
+              secondary: secondary,
               surface: Colors.white,
-              surfaceContainerHighest: const Color(0xFFE4ECEC),
+              surfaceContainerHighest: const Color(0xFFE5ECF5),
+              onPrimary: Colors.white,
               onSurface: foreground,
+              error: const Color(0xFFD14B4B),
             ),
         scaffoldBackgroundColor: background,
         appBarTheme: const AppBarTheme(
-          backgroundColor: background,
-          foregroundColor: foreground,
+          backgroundColor: primary,
+          foregroundColor: Colors.white,
           elevation: 0,
-          centerTitle: true,
+          centerTitle: false,
+          scrolledUnderElevation: 0,
+          surfaceTintColor: Colors.transparent,
         ),
         cardTheme: CardThemeData(
           color: Colors.white,
-          elevation: 2,
+          elevation: 1.5,
           shadowColor: Colors.black.withValues(alpha: 0.06),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
@@ -62,6 +69,27 @@ class InventoryApp extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide.none,
+          ),
+        ),
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+            backgroundColor: secondary,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: secondary,
+          foregroundColor: Colors.white,
+          elevation: 4,
+        ),
+        dialogTheme: DialogThemeData(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
           ),
         ),
         textTheme: const TextTheme(
