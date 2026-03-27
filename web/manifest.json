@@ -1,6 +1,6 @@
 {
-    "name": "apps",
-    "short_name": "apps",
+    "name": "INVY",
+    "short_name": "INVY",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
